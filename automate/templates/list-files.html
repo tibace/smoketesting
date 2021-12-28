@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+ <title>File Download</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+  <form method="POST" action="{% url 'download_pdf_file' %}">
+    {% csrf_token %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+   <a class="nav-item nav-link active" href=""></a>
+    </div>
+  </div>
+</nav>
+ <div class="container" style="padding:20px;">
+    <div class="col-md-12 well">
+        <h3 class="text-primary">File Listing</h3> 
+        <hr style="border-top:1px dotted #ccc;"/>
+  {% block content %} 
+  <p><b>Files : </b>
+      <select name="city[]" class="form-control">
+        {% for results in showcity %}
+            <option>{{ results}}</option>
+        {% endfor %}
+    </select>
+<!--    <select name="city" class="form-control" multiple>-->
+<!--        {% for results in showcity %}-->
+<!--            <option>{{ results}}</option>-->
+<!--        {% endfor %}-->
+<!--    </select>-->
+</p>  
+<input type="submit" name="sign-up" value="Download">
+<br/><br/>
+
+    {% endblock %}
+    </div>
+  
+    </div> 
+  </form>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="button" onclick="location.href = '/'">Return to Home Page</button>
+</body>
+</html>

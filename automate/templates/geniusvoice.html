@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+ <title>Welcome Page</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<!--<body>-->
+
+<body style="background-color:LightGray;">
+
+<h1 style="background-color:LightGray;">SmokeTesting</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+   <a class="nav-item nav-link active" href=""></a>
+    </div>
+  </div>
+</nav>
+ <div class="container" style="padding:20px;">
+    <div class="col-md-12 well">
+
+        <h3 class="text-primary">File Upload</h3>
+        <br>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="images" multiple>
+            <input type="submit" value="Save Data">
+        </form>
+        <hr>
+<!--        {% for message in messages %}-->
+<!--        {{ message }}-->
+<!--        {% endfor %}-->
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} mb-0 alert-dismissible fade show" role="alert">
+            <strong>Message: </strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+
+
+        <br>
+        <br>
+        <!--  <button  width="50" onclick="location.href='upload-files.html'">File Upload</button> -->
+        <h3 class="text-primary">Run Script</h3>
+        <hr style="border-top:1px dotted #ccc;"/>
+        <button  onclick="location = self.location.href='{% url 'script' %}'">Run Script</button>
+<!--        <button  onclick="location.href='{% url 'script' %}'">Run Script</button>-->
+
+        <br>
+        <br>
+
+        <br>
+        <br>
+        <h3 class="text-primary">File Download</h3>
+        <hr style="border-top:1px dotted #ccc;"/>
+        <button  width="50" onclick="location.href='files/list-files.html'">File Download</button>
+    </div>
+
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Genius Voice script
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container" style="padding:20px;">
+            <div class="col-md-12 well">
+        <h1>Run Script </h1>
+        <br>
+        <button onclick="location.href='{% url 'script' %}'">Run Script</button>
+        <br><br>
+        </div>
+        </div>
+    </body>
+</html> -->
